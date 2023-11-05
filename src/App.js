@@ -1,8 +1,13 @@
-import './App.css';
+import "./App.css";
+import Header from "./components/Header";
+import List from "./components/List";
 
 function App() {
   return (
-    <>초기세팅</>
+    <>
+      <Header />
+      <List />
+    </>
   );
 }
 
