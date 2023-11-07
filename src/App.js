@@ -1,16 +1,26 @@
-import {Reset} from 'styled-reset'
+import { Reset } from "styled-reset";
 import "./App.css";
-import Header from "./components/Header";
-import List from "./components/List";
-import SideBar from './components/SideBar';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Root from "./page/Root";
+import NotFound from "./page/NotFound";
+import Home from "./page/Home";
+import ItemDetail from "./page/ItemDetail";
 
+const router = createBrowserRouter([
+  { path: "/", 
+  element: <Root />,
+  errorElement: <NotFound/>,
+  children: [
+    {index: true, element: <Home/>,},
+    {path:'/list:videoId', element: <ItemDetail/>}
+  ]
+ }
+]);
 function App() {
   return (
     <>
-      <Reset/>
-      <Header />
-      <SideBar/>
-      <List />
+      <Reset />
+      <RouterProvider router={router}/>
     </>
   );
 }
